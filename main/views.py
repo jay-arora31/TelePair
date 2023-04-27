@@ -96,7 +96,7 @@ class register_as_normal(View):
     ''' This view is for registering the student '''
     form_class=StudentSignUpForm
     initial={'key':'value'}
-    template_name="Users/homepage.html"
+    template_name="company/homepage.html"
 
     def get(self,request):
         form=self.form_class(initial=self.initial)
@@ -144,7 +144,7 @@ def activate(request, uidb64, token):
 class login_request(View):
     form_class = AuthenticationForm
     initial={'key':'value'}
-    template_name="Users/homepage.html"
+    template_name="company/homepage.html"
     
     def get(self,request):
         print("Breakpointget")
@@ -252,7 +252,7 @@ class homepage(View):
         if request.user.is_authenticated:
             if request.user.is_company:
                 return redirect("main:company")
-        return render(request=request,context=context, template_name="users/homepage.html")
+        return render(request=request,context=context, template_name="company/homepage.html")
 
 
 ########################################################### Company Profile ###########################################################
@@ -470,7 +470,7 @@ class edit_student_profile(View):
                 return redirect("main:edit_company_profile")
             return redirect("main:homepage")
         args = {'form': form, 'student' : student}
-        return render(request, 'Users/edit_profile.html', args)
+        return render(request, 'company/edit_profile.html', args)
 
     def post(self, request):
         form = EditStudentProfileForm(request.POST,request.FILES or None, instance=request.user)

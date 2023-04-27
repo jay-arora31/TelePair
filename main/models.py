@@ -148,7 +148,7 @@ class Service(models.Model):
     company = models.ForeignKey(Company,default=2,on_delete=models.CASCADE,null=True)  
     user1 = models.ForeignKey(User,default=2,on_delete=models.CASCADE,null=True)  
     address=models.CharField(max_length=200)    
-
+    
 
     #Service_image=models.ImageField(upload_to='jobs/')
   
