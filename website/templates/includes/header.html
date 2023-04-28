@@ -1,0 +1,60 @@
+{% load static %}
+    <div class="navbar-area">
+
+        <div class="main-responsive-nav">
+            <div class="container-fluid container-large">
+                <div class="mobile-nav">
+                    <a href="index.html" class="logo"><img src="{% static 'assets/logo.png' %}" alt="logo"  width="80px" />TeleTair</a>
+                    <ul class="menu-sidebar menu-small-device">
+                        <li><a class="cart-icon" href="cart.html"><i class="flaticon-cart"></i><span>03</span></a></li>
+                        <li><button class="popup-button"><i class="flaticon-loupe"></i></button></li>
+                        <li><a class="default-button" href="contact.html">Book Now<i
+                                    class="flaticon-right-arrow"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-nav">
+            <div class="container-fluid container-large">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="{% static 'assets/logo.png' %}"  width="120px" alt="logo" />
+                    </a>
+                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item ">
+                                <a href="#" class="nav-link ">Home</a>
+                               
+                            </li>
+                            <li class="nav-item ">
+                                <a href="{% url 'shop_list' %}" class="nav-link ">Services</a>
+                               
+                            </li>
+                            
+                            <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
+                        </ul>
+
+                        
+                        <div class="menu-sidebar">
+                            {% if not request.user.is_authenticated   %}
+                          <ul>
+                               
+                                <li><a class="default-button" href="{%  url 'register_normal'  %}"><span>Register as Customer <i class="flaticon-right-arrow"></i></span></a></li>
+                                <li><a class="default-button" href="{%  url 'register_shop'  %}"><span>Register as Shop <i class="flaticon-right-arrow"></i></span></a></li>
+                                <li><a class="default-button" href="{%  url 'login'  %}"><span>Login <i class="flaticon-right-arrow"></i></span></a></li>
+                            </ul>
+                            {% else %} 
+                            <ul>
+                               
+                                <li><a class="default-button" href="{%  url 'logout'  %}"><span>Logout<i class="flaticon-right-arrow"></i></span></a></li>
+                                
+                                
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>

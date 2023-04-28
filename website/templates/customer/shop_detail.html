@@ -1,0 +1,152 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .font_cl{
+        font-size: 25px !important;
+    }
+</style>
+<div class="uni-banner product-uni-banner">
+    <div class="container-fluid container-large">
+    <div class="uni-banner-text-area">
+    <h1>Shop Details</h1>
+    <ul>
+    <li><a href="#">Home</a></li>
+    <li>Shop Details</li>
+    </ul>
+    </div>
+    </div>
+    </div>
+
+<div class="product-details ptb-100">
+    <div class="container">
+        <div class="product-details-top-area">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="">
+                        <img src="{{shop.s_image.url}}" alt="image">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product-details-info-area pl-20">
+                        <h3>{{shop.s_name}}</h3>
+            
+                        <ul class="stars">
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                            <li><i class="fas fa-star"></i></li>
+                        </ul>
+                      
+                        <div class="pdit-list">
+                            <ul  >
+                                <li class="font_cl" ><span>Shop Name:</span> {{shop.s_name}}</li>
+                                <li class="font_cl" ><span>Shop State:</span> {{shop.s_state}}</li>
+                                <li class="font_cl" ><span>Shop City:</span> {{shop.s_city}}</li>
+                                <li class="font_cl" ><span>Shop Phone:</span> {{shop.s_phone}}</li>
+                                <li class="font_cl" ><span>Shop email:</span> {{shop.s_info.email}}</li>
+                                
+                            </ul>
+                        </div>
+                       
+                        <div class="product-details-social-icons">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="product-description bg-f9f9f9 pb-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="product-description-area pt-70">
+                   
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
+                            aria-labelledby="nav-description-tab">
+                            <div class="pd-description">
+                               <h1>Tv Brand We Repair</h1>
+                                <ul class="production-description-list">
+                                   {% for j in shop_brand %}
+                                    <li  style="font-size: 40px !important;"><i class="flaticon-right-arrow"></i> {{j.tv_brand}}</li>
+                                    {%  endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="product-description-area pt-70">
+                   
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
+                            aria-labelledby="nav-description-tab">
+                            <div class="pd-description">
+                               <h1>Service we provide</h1>
+                                <ul class="production-description-list">
+                                   {% for j in shop_service %}
+                                    <li  style="font-size: 40px !important;"><i class="flaticon-right-arrow" ></i> {{j.service_category}}</li>
+                                    {%  endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+         <br>
+         <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="product-description-area pt-70">
+                   
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
+                            aria-labelledby="nav-description-tab">
+                            <div class="pd-description">
+                               <h1>Write Your Tv Problem and hit submit button it will send directly to the shop</h1>
+                                
+                            </div>
+                        </div>
+                        
+                        <textarea name="what" id="what" cols="" rows="10" style="width: 100%;"></textarea>
+                        <input type="text" name="name1" id="name1" hidden value="Jay">
+                        <input type="text" name="phone" id="phone" hidden value="7057593160">
+                        <br>
+                        <button class="default-button" onclick="send_handle()">send</button>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function send_handle(){
+
+var des=document.getElementById("what").value;
+let num=document.getElementById("phone").value;
+var name1=document.getElementById("name1").value;
+
+
+var win = window.open(`https://wa.me/${num}?text=%20msg%20from%20TelePair%0AOwner Name::%20 ${name1}%0A RepairDescription%20${des}`, '_blank');
+// win.focus();
+}
+</script>
+{% endblock content %}  

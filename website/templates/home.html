@@ -1,0 +1,203 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="">
+
+    <div class="main-banner">
+        
+        <div class="container-fluid container-large">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="banner-text-area banner-text-area-1 pr-20">
+                        <h6>TV Repairing Services</h6>
+                        <h1>A Smarter Technology Repair Service.</h1>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="banner-img-area">
+                        <img class="secondary-img" src="{% static 'assets/images/banner/banner-1-img.jpg'  %}" alt="image">
+                        <div class="banner-img-slider-area owl-carousel">
+                            <img src="{% static 'assets/images/banner/banner-slider-1.jpg' %}" alt="image">
+                            <img src="{% static 'assets/images/banner/banner-slider-2.jpg' %}" alt="image">
+                            <img src="{% static 'assets/images/banner/banner-slider-3.jpg' %}" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="features pt-70 pb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="features-card">
+                        <img src="{% static 'assets/images/icons/secure-shield.png' %}" alt="image">
+                        <h4>Reliable Services</h4>
+                        <p>Lorem ipsum dolor sit amet rts consecte ab elit ut elit tell luctus nec ullamcor.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="features-card">
+                        <img src="{% static 'assets/images/icons/certificate.png' %}" alt="image">
+                        <h4>Licensed & Certified</h4>
+                        <p>Lorem ipsum dolor sit amet rts consecte ab elit ut elit tell luctus nec ullamcor.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="features-card">
+                        <img src="{% static 'assets/images/icons/user.png' %}" alt="image">
+                        <h4>Skilled Personal</h4>
+                        <p>Lorem ipsum dolor sit amet rts consecte ab elit ut elit tell luctus nec ullamcor.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="features-card">
+                        <img src="{% static 'assets/images/icons/setting.png'  %}" alt="image">
+                        <h4>Quality Guarantee</h4>
+                        <p>Lorem ipsum dolor sit amet rts consecte ab elit ut elit tell luctus nec ullamcor.</p>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+
+    <div class="about pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-text-area pr-20">
+                        <div class="default-section-title">
+                            <span>About Us</span>
+                            <h3>We Can Fix All Types Of TV's</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec ut viverra eros euismod.
+                                Vestibulum, diam suspendisse adipiscing diam quis. Et id volutpat sit odio venenatis a
+                                dui. Pharetra, quam non, amet pretium tincidunt sem tincidunt fringilla. Convallis ac
+                                viverra egestas in.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec ut viverra eros euismod.
+                                Vestibulum, diam suspendisse adipiscing diam quis. Et id volutpat sit odio venenatis a
+                                dui Pharetra.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-img-area">
+                        <img src="assets/images/about/about1.jpg" alt="image">
+                        <div class="about-img-text">
+                            <i class="flaticon-badge"></i>
+                            <h4>10 Years</h4>
+                            <p>of Experiences</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+ 
+
+    <div class="sign-up ptb-100">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="sign-up-form-area">
+                        <div class="default-section-title color-title">
+                            <h3>Sign Up For Repair</h3>
+                            <p>Enter your contact details to schedule a repair.</p>
+                        </div>
+                        <form>
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="ship-different-address" required />
+                                <label class="form-check-label" for="ship-different-address">I agree to the Privacy
+                                    Policy and Terms of Service.</label>
+                            </div>
+                            <button class="default-button"><span>Submit Rrequest</span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<style>
+    .faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.faq-question {
+  border-top: 1px solid #ccc;
+}
+
+.faq-question h3 {
+  margin: 0;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 10px 10px;
+}
+
+.faq-answer p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+</style>
+
+    <div class="newsletter ptb-100">
+        <div class="container">
+            <div class="faq-container">
+                <h2>FAQ</h2>
+                <div class="faq-question">
+                  <h3>What is your return policy?</h3>
+                  <div class="faq-answer">
+                    <p>We accept returns within 30 days of purchase for items in their original condition.</p>
+                  </div>
+                </div>
+                <div class="faq-question">
+                  <h3>How long will it take to receive my order?</h3>
+                  <div class="faq-answer">
+                    <p>Most orders are shipped within 24 hours and delivered within 3-5 business days.</p>
+                  </div>
+                </div>
+                <div class="faq-question">
+                  <h3>Do you offer free shipping?</h3>
+                  <div class="faq-answer">
+                    <p>Yes, we offer free shipping on all orders over $50.</p>
+                  </div>
+                </div>
+                <div class="faq-question">
+                  <h3>What payment methods do you accept?</h3>
+                  <div class="faq-answer">
+                    <p>We accept all major credit cards and PayPal.</p>
+                  </div>
+                </div>
+              </div>
+              
+        </div>
+    </div>
+    
+</div>
+{% endblock content %}

@@ -1,0 +1,142 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="uni-banner product-uni-banner">
+    <div class="container-fluid container-large">
+        <div class="uni-banner-text-area">
+            <h1>Shops</h1>
+           
+        </div>
+    </div>
+</div>
+
+
+<div class="products ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="product-page-topbar">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <!-- <div class="ppt-left-side">
+                                <p>Showing 1-9 Of 12 Results</p>
+                            </div> -->
+                        </div>
+                   
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="row justify-content-center">
+                        {% for i in shop %}
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="product-card">
+                                <div class="product-card-img">
+                                    <a href="{% url 'shop_detail' i.s_info.id %}"><img src="{{i.s_image.url}}"
+                                            alt="image"></a>
+                                </div>
+                                <div class="product-card-text-area">
+                                    <div class="product-info">
+                                        <h4><a href="{% url 'shop_detail' i.s_info.id %}">{{i.s_name}}</a></h4>
+                                        <p>{{i.s_city}},{{i.s_state}}</p>
+                                    </div>
+                                    <a class="product-cart-btn" href="#"><img src="{% static 'shop.png' %}" alt="" srcset=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+              
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar-area pt-40 pl-80">
+                    <div class="sidebar-card search-box">
+                        <h2 class="filter-title">Filter</h2>
+                         <form action="{% url 'shop_list' %}" method="post">
+                            {% csrf_token %}
+
+                        <div class="filter-list">
+                            <h4 class="filter-title">Location</h4>
+
+                            <select name="location"  id="location" class="form-control form-control selectbox select form-select">
+                              <option  >Location</option>
+              
+                              <option value="Gondia"   >Gondia</option>
+                              <option value="Nagpur"   >Nagpur</option>
+                              <option value="Chandrapur"   >Chandrapur</option>
+                              <option value="Mumbai"   >Mumbai</option>
+         
+                          </select>
+
+
+
+                          <br><br><br>
+
+                          <!-- <div class="filter-list">
+                            <h4 class="filter-title">Shops</h4>
+                            <select name="shop" id="shop"  class="form-control form-control selectbox select form-select">
+                             
+                            </select>
+                        </div> -->
+                        <br><br><br>
+                        <h4 class="filter-title">TV Brands</h4>
+
+                          <select name="tvbrands"  id="tvbrands" class="form-control form-control selectbox select form-select">
+
+                            {% for i in tvbrands %}
+                            <option  >Select Tv Brand</option>
+                            <option  >{{i.tv_brand}}</option>
+            
+                            {% endfor %}
+       
+                        </select>
+                          <br><br>
+                        </div>
+                    </div>
+
+                    </div>
+                    <input type="submit" class="default-button" value="Filter">
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<script>
+            $("#location").change(function () {
+            alert("Hey")
+        var location = $(this).val();
+    alert(location)
+        $.ajax({
+            url: '/filter_shop/',
+            data: {
+                
+                'location': location
+            },
+            dataType: 'json',
+            success: function (data) {
+            $("#shop").empty();
+            $('#shop').append($('<option>', {
+                    value: 'Select Subject',
+                    text: 'Select Subject'
+                }));
+            for (var i in data['subject_data']) {
+            subject=data['subject_data'][i]
+
+            
+            $('#shop').append($('<option>', {
+                    value: subject,
+                    text: subject
+                }));
+            }
+            }
+        });
+
+    });
+</script>
+{% endblock content %}
