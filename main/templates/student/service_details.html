@@ -190,6 +190,31 @@
                                           </div>
                                       </div>
                                   </div>
+                                  <div class="row justify-content-center">
+                                    <div class="col-lg-10">
+                                        <div class="product-description-area pt-70">
+                                           
+                                            <div class="tab-content" id="nav-tabContent">
+                                                <div class="tab-pane fade show active" id="nav-description" role="tabpanel"
+                                                    aria-labelledby="nav-description-tab">
+                                                    <div class="pd-description">
+                                                       <h1>Write Your Tv Problem and hit submit button it will send directly to the shop</h1>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                <textarea name="what" id="what" cols="" rows="10" style="width: 100%;"></textarea>
+                                                <input type="text" name="name1" id="name1" hidden value="Jay">
+                                                <input type="text" name="phone" id="phone" hidden value="7057593160">
+                                                <br>
+                                                <button class="default-button" onclick="send_handle()">send</button>
+                        
+                        
+                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                   <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                   aria-labelledby="pills-home-tab">
                                   <div class="card service-description">
@@ -292,7 +317,9 @@
                                   <p class="mb-1"><i class="far fa-envelope"></i> 
                                     {{Service.company.user.email}}
                                   </p>
-                                  <p class="mb-0"><i class="fas fa-phone-alt"></i>  {{Service.company.phone_no}}</p>
+                                  <p class="mb-0"><i class="fas fa-phone-alt"></i> <p  >{{Service.company.phone_no}}</p> </p>
+
+                                  <input value={{Service.company.phone_no}} type="text" id="phone1" hidden>
                               </div>
                              
                           </div>
@@ -638,4 +665,16 @@
 <script src="{% static 'asset2/js/script.js' %}"></script>
 
 </html>
+<script>
+    function send_handle(){
+
+var des=document.getElementById("what").value;
+let num=document.getElementById("phone1").value;
+var name1=document.getElementById("name1").value;
+alert(num)
+
+var win = window.open(`https://wa.me/${num}?text=%20msg%20from%20TelePair%0AOwner Name::%20 ${name1}%0A RepairDescription%20${des}`, '_blank');
+// win.focus();
+}
+</script>
 {% endblock content %}
