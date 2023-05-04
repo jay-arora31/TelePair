@@ -45,6 +45,8 @@
                     <div class="login-form">
                         <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
+                            {{ form1|crispy }}
+
                             {{ form|crispy }}
           
 
@@ -56,7 +58,7 @@
                  
                             </div>
                             <button class="default-button" type="submit"><span>Register</span></button>
-                            <p class="optional-link">Don't Have An Account, <a href="registration.html"><span>Register
+                            <p class="optional-link">Already Registered, <a href="/login"><span>Login
                                         Now</span></a></p>
                         </form>
                     </div>

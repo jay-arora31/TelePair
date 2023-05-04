@@ -33,6 +33,7 @@ urlpatterns = [
       path('shop_detail/<int:id>',views.shop_detail,name='shop_detail' ),
       path('shop_edit_profile/',views.shop_edit_profile,name='shop_edit_profile' ),
       path('filter_shop/',views.filter_shop,name='filter_shop' ),
+      path('managereq/',views.managereq,name='managereq' ),
 
       
 

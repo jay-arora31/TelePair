@@ -44,7 +44,36 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 
+    n_info= models.ForeignKey(settings.AUTH_USER_MODEL,db_index=True,on_delete =models.CASCADE)
+    n_name=models.CharField(max_length =255, null=True,blank=True)
+    n_city=models.CharField(max_length =255, null=True,blank=True,choices=CITY_CHOICES)
+    n_state=models.CharField(max_length =255, null=True,blank=True,choices=STATE_CHOICES)
+    n_phone=models.CharField(max_length =255, null=True,blank=True)
+    n_address=models.CharField(max_length =255, null=True,blank=True)
+class NormalForm(forms.ModelForm):
+    def __init__(self,*args,**kwargs):
+        super(NormalForm,self).__init__(*args,**kwargs)
+        self.fields['n_name'].widget.attrs['class'] = 'form-control class_id form-group'
+        self.fields['n_city'].widget.attrs['class'] = 'form-control class_id form-group'
+        self.fields['n_state'].widget.attrs['class'] = 'form-control class_id form-group'
+        self.fields['n_phone'].widget.attrs['class'] = 'form-control class_id form-group'
+        
+     
+    class Meta:
+                model =NormalUser
+                fields =('n_name','n_city','n_state','n_phone')
+                widgets = {
+     
 
+                    }
+                labels = {
+                            
+                             'n_name': (' Name'),
+                             'n_city': ('City'),
+                             'n_state': ('State'),
+                             'n_phone': ('Phone No.'),
+                         
+                }  
 
 
 class ShopProfileCompleteForm(forms.ModelForm):

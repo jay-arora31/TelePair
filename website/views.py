@@ -60,7 +60,8 @@ def login(request):
 def register_normal( request):
     if request.method =='POST':
             form =CustomUserCreationForm(request.POST)
-            if form.is_valid():
+            form1 =NormalForm(request.POST)
+            if form.is_valid() and form1.is_valid():
                 print("form is va;id")
                 user=form.save(commit =False)
                 user.email =user.email.lower()
@@ -68,6 +69,9 @@ def register_normal( request):
                 user.active =True
                 user.is_customer=True
                 user.save()
+                user1=form1.save(commit=False)
+                user1.n_info=user
+                user1.save()
     
                 messages.success(request,"Account Registered Successfully")
                 return redirect('home')
@@ -76,7 +80,8 @@ def register_normal( request):
                 return redirect('register_normal')
 
     form=CustomUserCreationForm()
-    return render(request,'register_normal.html',{'form':form})
+    form1=NormalForm()
+    return render(request,'register_normal.html',{'form':form,'form1':form1})
 
 
 def register_shop( request):
@@ -200,3 +205,6 @@ def filter_shop(request):
                         return JsonResponse(data)
                     else:
                         return JsonResponse(data)
+                    
+def managereq(request):
+        return render(request,'shop/testing.html')
